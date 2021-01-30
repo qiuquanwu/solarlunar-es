@@ -1,0 +1,26 @@
+{
+  "name": "solarlunar-es",
+  "version": "1.0.0",
+  "description": "一个公历农历转化工具，支持esmodule",
+  "main": "index.js",
+  "module": "dist/bundle.esm.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "files": ["dist"],
+  "keywords": [
+    "solarlunar",
+    "esm",
+    "公历农历转换"
+  ],
+  "author": "qiuquanwu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "rollup": "^2.38.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
