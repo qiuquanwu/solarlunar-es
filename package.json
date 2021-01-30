@@ -13,6 +13,10 @@
     "esm",
     "公历农历转换"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/isfive/solarlunar-es"
+  },
   "author": "qiuquanwu",
   "license": "ISC",
   "devDependencies": {
