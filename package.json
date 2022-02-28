@@ -1,6 +1,6 @@
 {
   "name": "solarlunar-es",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "一个公历农历转化工具，支持esmodule",
   "main": "./dist/solarlunar.cjs.js",
   "module": "./dist/solarlunar.esm.js",
@@ -32,9 +32,7 @@
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript": "^1.0.1",
-    "typescript": "^4.5.5"
-  },
-  "dependencies": {
+    "typescript": "^4.5.5",
     "chai": "^4.3.6",
     "mocha": "^9.2.1"
   }
