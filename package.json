@@ -2,8 +2,9 @@
   "name": "solarlunar-es",
   "version": "1.0.0",
   "description": "一个公历农历转化工具，支持esmodule",
-  "main": "index.js",
-  "module": "dist/bundle.esm.js",
+  "main": "./dist/solarlunar.cjs.js",
+  "module": "./dist/solarlunar.esm.js",
+  "types": "./dist/solarlunar.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "mocha"
