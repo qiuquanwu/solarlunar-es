@@ -40,7 +40,9 @@ output:
     nWeek: 4,
     ncWeek: '星期四',
     isTerm: true,
-    term: '寒露'
+    term: '寒露',
+    lunarFestival:'',
+    festival: ''
 }
 ```
 
@@ -166,3 +168,5 @@ solarLunar.lunar2solar(2015, 8, 26, true);  // 闰月
 * (Boolean)`isToday` : 是否是今天
 * (Boolean)`isTerm` : 是否有节气
 * (String)`term` : 节气，如果没有则返回空字符串
+* (String)`lunarFestival` : 农历节日，如果没有则返回空字符串
+* (String)`festival` : 公历节日，如果没有则返回空字符串

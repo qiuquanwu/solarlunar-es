@@ -20,9 +20,11 @@ import nStr1 from './const/nStr1';
 import nStr2 from './const/nStr2';
 import nStr3 from './const/nStr3';
 import nStr4 from './const/nStr4';
+import lunarFestival from "./const/lunarFestival"
+import festival from "./const/festival"
 import { Solar2lunar, SolarLunar } from './types';
 
-const solarLunar:SolarLunar = {
+const solarLunar: SolarLunar = {
   lunarInfo,
   solarMonth,
   gan,
@@ -293,7 +295,7 @@ const solarLunar:SolarLunar = {
     var leap = solarLunar.leapMonth(i); //闰哪个月
 
     var isLeap = false;
-    
+
     //效验闰月
     for (i = 1; i < 13 && offset > 0; i++) {
       //闰月
@@ -363,6 +365,13 @@ const solarLunar:SolarLunar = {
     //日柱 当月一日与 1900/1/1 相差天数
     var dayCyclical = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10;
     var gzD = solarLunar.toGanZhi(dayCyclical + d - 1);
+    var festival1 = lunarFestival[month] && lunarFestival[month][day] && ""
+    console.log("festival1", festival1)
+    if ([2022, 2025, 2026, 2027, 2028, 2029].includes(y) && month === 12 && day === 29) {
+      festival1 = "除夕"
+    }
+    var festival2: string = festival[m] && festival[m][d] && ""
+    console.log("festival2", festival2)
     return {
       'lYear': year,
       'lMonth': month,
@@ -382,7 +391,9 @@ const solarLunar:SolarLunar = {
       'nWeek': nWeek,
       'ncWeek': "\u661f\u671f" + cWeek,
       'isTerm': isTerm,
-      'term': term
+      'term': term,
+      "lunarFestival": festival1,
+      "festival": festival2
     } as Solar2lunar;
   },
 

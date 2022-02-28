@@ -18,6 +18,8 @@ export declare interface Solar2lunar{
     ncWeek: string;
     isTerm: boolean;
     term: string;
+    lunarFestival:string;
+    festival:string
 }
 
 export declare interface SolarLunar{
