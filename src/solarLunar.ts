@@ -20,8 +20,9 @@ import nStr1 from './const/nStr1';
 import nStr2 from './const/nStr2';
 import nStr3 from './const/nStr3';
 import nStr4 from './const/nStr4';
+import { Solar2lunar, SolarLunar } from './types';
 
-const solarLunar = {
+const solarLunar:SolarLunar = {
   lunarInfo,
   solarMonth,
   gan,
@@ -179,9 +180,9 @@ const solarLunar = {
    * @eg:
    */
   toChinaYear: function (y) { //年 => \u5E74
-    var oxxx = parseInt(y / 1000);
-    var xoxx = parseInt(y % 1000 / 100);
-    var xxox = parseInt(y % 100 / 10);
+    var oxxx = parseInt((y / 1000).toString());
+    var xoxx = parseInt((y % 1000 / 100).toString());
+    var xxox = parseInt((y % 100 / 10).toString());
     var xxxo = y % 10;
 
     return solarLunar.nStr4[oxxx] + solarLunar.nStr4[xoxx] + solarLunar.nStr4[xxox] + solarLunar.nStr4[xxxo] + "\u5E74";
@@ -261,7 +262,7 @@ const solarLunar = {
     if (!y) { //未传参 获得当天
       var objDate = new Date();
     } else {
-      var objDate = new Date(y, parseInt(m) - 1, d);
+      var objDate = new Date(y, parseInt((m).toString()) - 1, d);
     }
     var i, leap = 0, temp = 0;
     //修正ymd参数
@@ -382,7 +383,7 @@ const solarLunar = {
       'ncWeek': "\u661f\u671f" + cWeek,
       'isTerm': isTerm,
       'term': term
-    };
+    } as Solar2lunar;
   },
 
 
