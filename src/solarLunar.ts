@@ -24,7 +24,7 @@ import lunarFestival from "./const/lunarFestival"
 import festival from "./const/festival"
 import { Solar2lunar, SolarLunar } from './types';
 
-const solarLunar: SolarLunar = {
+const solarLunar= {
   lunarInfo,
   solarMonth,
   gan,
@@ -42,7 +42,7 @@ const solarLunar: SolarLunar = {
    * @return Number
    * @eg:var count = solarLunar.lYearDays(1987) ;//count=387
    */
-  lYearDays: function (y) {
+  lYearDays: function (y:number):number {
     var i, sum = 348;
     for (i = 0x8000; i > 0x8; i >>= 1) {
       sum += (solarLunar.lunarInfo[y - 1900] & i) ? 1 : 0;
@@ -57,7 +57,7 @@ const solarLunar: SolarLunar = {
    * @return Number (0-12)
    * @eg:var leapMonth = solarLunar.leapMonth(1987) ;//leapMonth=6
    */
-  leapMonth: function (y) { //闰字编码 \u95f0
+  leapMonth: function (y:number):number { //闰字编码 \u95f0
     return (solarLunar.lunarInfo[y - 1900] & 0xf);
   },
 
@@ -68,7 +68,7 @@ const solarLunar: SolarLunar = {
    * @return Number (0、29、30)
    * @eg:var leapMonthDay = solarLunar.leapDays(1987) ;//leapMonthDay=29
    */
-  leapDays: function (y) {
+  leapDays: function (y:number):number {
     if (solarLunar.leapMonth(y)) {
       return ((solarLunar.lunarInfo[y - 1900] & 0x10000) ? 30 : 29);
     }
@@ -82,7 +82,7 @@ const solarLunar: SolarLunar = {
    * @return Number (-1、29、30)
    * @eg:var MonthDay = solarLunar.monthDays(1987,9) ;//MonthDay=29
    */
-  monthDays: function (y, m) {
+  monthDays: function (y:number, m:number):number {
     if (m > 12 || m < 1) {
       return -1;
     }//月份参数从1至12，参数错误返回-1
@@ -96,7 +96,7 @@ const solarLunar: SolarLunar = {
    * @return Number (-1、28、29、30、31)
    * @eg:var solarMonthDay = solarLunar.leapDays(1987) ;//solarMonthDay=30
    */
-  solarDays: function (y, m) {
+  solarDays: function (y:number, m:number) {
     if (m > 12 || m < 1) {
       return -1;
     } //若参数错误 返回-1
@@ -114,7 +114,7 @@ const solarLunar: SolarLunar = {
    * @param offset 相对甲子的偏移量
    * @return Cn string
    */
-  toGanZhi: function (offset) {
+  toGanZhi: function (offset:number) :string {
     return (solarLunar.gan[offset % 10] + solarLunar.zhi[offset % 12]);
   },
 
@@ -125,7 +125,7 @@ const solarLunar: SolarLunar = {
    * @return number Number
    * @eg:var _24 = solarLunar.getTerm(1987,3) ;//_24=4;意即1987年2月4日立春
    */
-  getTerm: function (y, n) {
+  getTerm: function (y:number, n:number):number {
     if (y < 1900 || y > 2100) {
       return -1;
     }
@@ -181,7 +181,7 @@ const solarLunar: SolarLunar = {
    * @return string
    * @eg:
    */
-  toChinaYear: function (y) { //年 => \u5E74
+  toChinaYear: function (y:number):string { //年 => \u5E74
     var oxxx = parseInt((y / 1000).toString());
     var xoxx = parseInt((y % 1000 / 100).toString());
     var xxox = parseInt((y % 100 / 10).toString());
@@ -196,7 +196,7 @@ const solarLunar: SolarLunar = {
    * @return number string
    * @eg:var cnMonth = solarLunar.toChinaMonth(12) ;//cnMonth='腊月'
    */
-  toChinaMonth: function (m) { // 月 => \u6708
+  toChinaMonth: function (m:number):string|number { // 月 => \u6708
     if (m > 12 || m < 1) {
       return -1;
     } //若参数错误 返回-1
@@ -212,7 +212,7 @@ const solarLunar: SolarLunar = {
    * @return Cn string
    * @eg:var cnDay = solarLunar.toChinaDay(21) ;//cnMonth='廿一'
    */
-  toChinaDay: function (d) { //日 => \u65e5
+  toChinaDay: function (d:number):string { //日 => \u65e5
     var s;
     switch (d) {
       case 10:
@@ -241,7 +241,7 @@ const solarLunar: SolarLunar = {
    * @eg:var animal = solarLunar.getAnimal(1987) ;//animal='兔'
    * todo 生肖需要精确转换
    */
-  getAnimal: function (y) {
+  getAnimal: function (y:number):string {
     return solarLunar.animals[(y - 4) % 12];
   },
 
@@ -254,7 +254,7 @@ const solarLunar: SolarLunar = {
    * @return JSON object
    * @eg:console.log(solarLunar.solar2lunar(1987,11,01));
    */
-  solar2lunar: function (y, m, d) { //参数区间1900.1.31~2100.12.31
+  solar2lunar: function (y:number, m:number, d:number):Solar2lunar|number { //参数区间1900.1.31~2100.12.31
     if (y < 1900 || y > 2100) {
       return -1;
     }//年份限定、上限
@@ -367,7 +367,7 @@ const solarLunar: SolarLunar = {
     var gzD = solarLunar.toGanZhi(dayCyclical + d - 1);
     var festival1 = lunarFestival[month] && lunarFestival[month][day] && ""
     console.log("festival1", festival1)
-    if ([2022, 2025, 2026, 2027, 2028, 2029].includes(y) && month === 12 && day === 29) {
+    if ([2022, 2025, 2026, 2027, 2028, 2029,2031,2032].includes(y) && month === 12 && day === 29) {
       festival1 = "除夕"
     }
     var festival2: string = festival[m] && festival[m][d] && ""
@@ -407,7 +407,7 @@ const solarLunar: SolarLunar = {
    * @return JSON object
    * @eg:console.log(solarLunar.lunar2solar(1987,9,10));
    */
-  lunar2solar: function (y, m, d, isLeapMonth) {	//参数区间1900.1.31~2100.12.1
+  lunar2solar: function (y:number, m:number, d:number, isLeapMonth:boolean):Solar2lunar|number {	//参数区间1900.1.31~2100.12.1
     var leapOffset = 0;
     var leapMonth = solarLunar.leapMonth(y);
     var leapDay = solarLunar.leapDays(y);
