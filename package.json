@@ -1,6 +1,6 @@
 {
   "name": "solarlunar-es",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "一个公历农历转化工具，支持esmodule",
   "main": "./dist/solarlunar.cjs.js",
   "module": "./dist/solarlunar.esm.js",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/isfive/solarlunar-es"
+    "url": "https://github.com/qiuquanwu/solarlunar-es"
   },
   "author": "qiuquanwu",
   "license": "ISC",
