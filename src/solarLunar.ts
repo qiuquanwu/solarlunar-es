@@ -365,11 +365,12 @@ const solarLunar= {
     //日柱 当月一日与 1900/1/1 相差天数
     var dayCyclical = Date.UTC(y, sm, 1, 0, 0, 0, 0) / 86400000 + 25567 + 10;
     var gzD = solarLunar.toGanZhi(dayCyclical + d - 1);
-    var festival1 = lunarFestival[month] && lunarFestival[month][day] && ""
+    var festival1 = (lunarFestival[month] && lunarFestival[month][day] )? lunarFestival[month][day] :""
     if ([2022, 2025, 2026, 2027, 2028, 2029,2031,2032].includes(y) && month === 12 && day === 29) {
       festival1 = "除夕"
     }
-    var festival2: string = festival[m] && festival[m][d] && ""
+    var festival2: string = festival[m] && festival[m][d] ? festival[m][d] : ""
+    console.log(festival2,m,d)
     return {
       'lYear': year,
       'lMonth': month,
