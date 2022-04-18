@@ -370,7 +370,6 @@ const solarLunar= {
       festival1 = "除夕"
     }
     var festival2: string = festival[m] && festival[m][d] ? festival[m][d] : ""
-    console.log(festival2,m,d)
     return {
       'lYear': year,
       'lMonth': month,

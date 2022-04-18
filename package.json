@@ -1,6 +1,6 @@
 {
   "name": "solarlunar-es",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "一个公历农历转化工具，支持esmodule",
   "main": "./dist/solarlunar.cjs.js",
   "module": "./dist/solarlunar.esm.js",

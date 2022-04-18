@@ -6,7 +6,7 @@ describe('公农历互转测试', function () {
         it('should return empty string', function () {
             const solar2lunarData = solarLunar.solar2lunar(2022, 1, 31);
             console.log(solar2lunarData)
-            expect(solar2lunarData).to.have.any.keys('lYear', 'lMonth')
+            expect(solar2lunarData.lunarFestival).to.eq('除夕')
         });
     });
     describe('常规测试2', function () {
@@ -28,7 +28,7 @@ describe('公农历互转测试', function () {
         it('should return empty string', function () {
             const solar2lunarData =solarLunar.solar2lunar(2022, 5, 1);
             console.log(solar2lunarData)
-            expect(solar2lunarData).to.have.any.keys('lYear', 'lMonth')
+            expect(solar2lunarData.festival).to.eq('劳动节')
             // return true
         });
     });
